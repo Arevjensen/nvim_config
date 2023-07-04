@@ -39,3 +39,5 @@ vim.keymap.set("i", "ø", "{")
 vim.keymap.set("i", "æ", "}")
 vim.keymap.set("i", "Ø", "[")
 vim.keymap.set("i", "Æ", "]")
+
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>");
