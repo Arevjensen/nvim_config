@@ -40,4 +40,5 @@ vim.keymap.set("i", "æ", "}")
 vim.keymap.set("i", "Ø", "[")
 vim.keymap.set("i", "Æ", "]")
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>");
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "<leader>t", "<C-w>v<C-w>l<Cmd>terminal<CR>i")
