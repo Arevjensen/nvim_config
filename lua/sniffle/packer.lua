@@ -62,17 +62,17 @@ return require('packer').startup(function(use)
 		--snippets
 		{'L3MON4D3/LuaSnip'},
 		{'rafamadriz/friendly-snippets'},
-	}
+	},
+    use {
+        'saecki/crates.nvim',
+        tag = 'v0.4.0',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
+        end,
+    }
 }
 
-use {
-    'saecki/crates.nvim',
-    tag = 'v0.3.0',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-        require('crates').setup()
-    end,
-}
 
 if packer_bootstrap then
   require("packer").sync()

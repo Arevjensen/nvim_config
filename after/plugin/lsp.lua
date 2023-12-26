@@ -60,10 +60,6 @@ lsp.skip_server_setup({'rust_analyzer'})
 
 lsp.setup()
 
-vim.diagnostic.config({
-    virtual_text = true
-})
-
 local rust_tools = require('rust-tools')
 
  local opts = {
@@ -92,3 +88,8 @@ local rust_tools = require('rust-tools')
 }
 
 rust_tools.setup(opts)
+
+vim.diagnostic.config({
+    virtual_text = true
+})
+
