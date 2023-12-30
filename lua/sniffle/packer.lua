@@ -33,7 +33,6 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use("nvim-treesitter/nvim-treesitter-context")
-    use("m4xshen/hardtime.nvim")
     use("simrat39/rust-tools.nvim")
 
     use {
