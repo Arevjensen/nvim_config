@@ -33,6 +33,7 @@ return {
   		dependencies = { "rafamadriz/friendly-snippets" },
         config = function ()
 	        require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip").filetype_extend("rust", { "rustdoc" })
         end
 	},
 },
@@ -58,6 +59,16 @@ config = function()
                             diagnostics = {
                                 globals = { "vim" }
                             }
+                        }
+                    }
+                }
+            end,
+            ["rust_analyzer"] = function ()
+                local lspconfig = require("lspconfig")
+                lspconfig.rust_analyzer.setup {
+                    settings = {
+                        checkOnSave = {
+                            command = "clippy",
                         }
                     }
                 }
