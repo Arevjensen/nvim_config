@@ -14,4 +14,10 @@ return {
         end,
     },
     "nvim-treesitter/nvim-treesitter-context",
+    {
+  "j-hui/fidget.nvim",
+  opts = {
+    -- options
+  },
+}
 }
