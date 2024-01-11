@@ -15,9 +15,20 @@ return {
     },
     "nvim-treesitter/nvim-treesitter-context",
     {
-  "j-hui/fidget.nvim",
-  opts = {
-    -- options
-  },
-}
+        "j-hui/fidget.nvim",
+        opts = {
+            -- options
+        },
+    },
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
+        config = function ()
+           require('Comment').setup()
+        end
+    }
+
 }
