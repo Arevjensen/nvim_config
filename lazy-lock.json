@@ -16,7 +16,6 @@
   "nvim-treesitter-context": { "branch": "master", "commit": "400a99ad43ac78af1148061da3491cba2637ad29" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "rose-pine": { "branch": "main", "commit": "279b06d47a2105a405518e2aa3a484e48dfb7b1b" },
-  "rustaceanvim": { "branch": "master", "commit": "e4020e72a5562b9e7cd09e9cd025467f7b0ea76a" },
   "telescope.nvim": { "branch": "master", "commit": "87e92ea31b2b61d45ad044cf7b2d9b66dad2a618" },
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
