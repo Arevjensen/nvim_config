@@ -38,7 +38,7 @@ return {
 	},
 },
 config = function()
-    local servers = { 'rust_analyzer', 'lua_ls'}
+    local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx'  }
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     require("mason").setup()
