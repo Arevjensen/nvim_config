@@ -1,4 +1,4 @@
-local function on_attach(opts)
+local function on_attach_keys(opts)
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
     vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
@@ -24,14 +24,11 @@ return {
             },
             "williamboman/mason-lspconfig.nvim",
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-            -- Additional lua configuration, makes nvim stuff amazing!
             'folke/neodev.nvim',
 
-            -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
             { 'j-hui/fidget.nvim', opts = {} }
         },
+        opts = { inlay_hints = { enabled = true }, },
         config = function()
             local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx' }
             local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -63,6 +60,10 @@ return {
                     ["rust_analyzer"] = function()
                         local lspconfig = require("lspconfig")
                         lspconfig.rust_analyzer.setup {
+                            capabilities = capabilities,
+                            on_attach = function(c, b)
+                                vim.lsp.inlay_hint.enable(b, true)
+                            end,
                             settings = {
                                 checkOnSave = {
                                     command = "clippy",
@@ -77,7 +78,7 @@ return {
                 group = vim.api.nvim_create_augroup('UserLspConfig', {}),
                 callback = function(ev)
                     local opts = { buffer = ev.buf }
-                    on_attach(opts)
+                    on_attach_keys(opts)
                 end,
             })
             vim.diagnostic.config({
