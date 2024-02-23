@@ -2,17 +2,20 @@ return {
     "nvim-lua/plenary.nvim",
     {
         "rose-pine/neovim",
+        priority = 1000,
         name = "rose-pine",
         config = function()
             vim.cmd("colorscheme rose-pine")
         end
     },
     {
-        "saecki/crates.nvim",
-        event = 'VeryLazy',
-        config = function()
-            require('crates').setup()
-        end,
+        "Saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        opts = {
+            src = {
+                cmp = { enabled = true },
+            },
+        },
     },
     "nvim-treesitter/nvim-treesitter-context",
     {

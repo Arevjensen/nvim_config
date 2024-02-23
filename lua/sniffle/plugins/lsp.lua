@@ -15,6 +15,7 @@ end
 return {
     {
         "neovim/nvim-lspconfig",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         dependencies = {
             {
                 "williamboman/mason.nvim",
@@ -60,10 +61,9 @@ return {
                     ["rust_analyzer"] = function()
                         local lspconfig = require("lspconfig")
                         lspconfig.rust_analyzer.setup {
-                            capabilities = capabilities,
-                            on_attach = function(c, b)
-                                vim.lsp.inlay_hint.enable(b, true)
-                            end,
+                            -- on_attach = function(c, b)
+                            --     vim.lsp.inlay_hint.enable(b, true)
+                            -- end,
                             settings = {
                                 checkOnSave = {
                                     command = "clippy",
@@ -81,6 +81,7 @@ return {
                     on_attach_keys(opts)
                 end,
             })
+
             vim.diagnostic.config({
                 update_in_insert = true,
                 float = {
