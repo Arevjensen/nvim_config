@@ -2,6 +2,7 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -38,6 +39,3 @@ vim.keymap.set("i", "ø", "{")
 vim.keymap.set("i", "æ", "}")
 vim.keymap.set("i", "Ø", "[")
 vim.keymap.set("i", "Æ", "]")
-
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>t", "<C-w>v<C-w>l<Cmd>terminal<CR>i")
