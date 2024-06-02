@@ -1,6 +1,5 @@
 return {
     'akinsho/toggleterm.nvim',
-    tag = "*",
     config = function()
         require("toggleterm").setup()
         vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
