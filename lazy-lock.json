@@ -23,6 +23,7 @@
   "neogit": { "branch": "master", "commit": "67eb1a73974a0bff367dc401479e7e01fad7ff05" },
   "nui.nvim": { "branch": "main", "commit": "b1b3dcd6ed8f355c78bad3d395ff645be5f8b6ae" },
   "nvim-cmp": { "branch": "main", "commit": "5260e5e8ecadaf13e6b82cf867a909f54e15fd07" },
+  "nvim-highlight-colors": { "branch": "main", "commit": "fe175ff05fafbe8dc88d61ce72fab9c1a2e9bd6e" },
   "nvim-lspconfig": { "branch": "master", "commit": "710a8fa7379db32199545f30ea01dd8446b9302f" },
   "nvim-spectre": { "branch": "master", "commit": "366f46fdd4a1593cc237aea13d5ef113739a472c" },
   "nvim-treesitter": { "branch": "master", "commit": "deb76a224a4ad1de9552c828c5d907acf9f288f0" },
