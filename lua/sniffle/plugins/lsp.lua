@@ -32,7 +32,7 @@ return {
         },
         opts = { inlay_hints = { enabled = true }, },
         config = function()
-            local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx' }
+            local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx', 'esling', 'html' }
             local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
             require('neodev').setup()
@@ -40,6 +40,13 @@ return {
 
             require("mason-lspconfig").setup {
                 ensure_installed = servers,
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗"
+                    }
+                },
                 handlers = {
                     function(server_name)
                         require("lspconfig")[server_name].setup {
@@ -89,7 +96,7 @@ return {
                     focusable = false,
                     style = "minimal",
                     border = "rounded",
-                    source = "always",
+                    source = true,
                     header = "",
                     prefix = ""
                 }
