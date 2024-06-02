@@ -32,7 +32,7 @@ return {
         },
         opts = { inlay_hints = { enabled = true }, },
         config = function()
-            local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx', 'esling', 'html' }
+            local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx', 'eslint', 'html' }
             local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
             require('neodev').setup()
