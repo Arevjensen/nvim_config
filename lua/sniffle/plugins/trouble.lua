@@ -44,35 +44,21 @@ return {
     "folke/trouble.nvim",
     opts = { use_diagnostic_signs = true },
     cmd = "Trouble",
-    config = function()
-        require("trouble").setup();
-        vim.keymap.set("n", "<leader>xp", function()
-            if require("trouble").is_open() then
-                require("trouble").previous({ skip_groups = true, jump = true })
-            else
-                local ok, err = pcall(vim.cmd.cprev)
-                if not ok then
-                    vim.notify(err, vim.log.levels.ERROR)
-                end
-            end
-        end)
-        vim.keymap.set("n", "<leader>xn",
-            function()
-                if require("trouble").is_open() then
-                    require("trouble").next({ skip_groups = true, jump = true })
-                else
-                    local ok, err = pcall(vim.cmd.cnext)
-                    if not ok then
-                        vim.notify(err, vim.log.levels.ERROR)
-                    end
-                end
-            end
-        )
-    end,
+    config = true,
     keys = {
         {
             "<leader>xx",
             "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+        {
+            "<leader>xn",
+            "<cmd>Trouble diagnostics next<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+        {
+            "<leader>xp",
+            "<cmd>Trouble diagnostics prev<cr>",
             desc = "Diagnostics (Trouble)",
         },
         {
