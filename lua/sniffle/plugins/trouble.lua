@@ -53,12 +53,12 @@ return {
         },
         {
             "<leader>xn",
-            "<cmd>Trouble diagnostics next<cr>",
+            "<cmd>Trouble diagnostics next skip_groups=true jump=true<cr>",
             desc = "Diagnostics (Trouble)",
         },
         {
             "<leader>xp",
-            "<cmd>Trouble diagnostics prev<cr>",
+            "<cmd>Trouble diagnostics prev skip_groups=true jump=true<cr>",
             desc = "Diagnostics (Trouble)",
         },
         {
