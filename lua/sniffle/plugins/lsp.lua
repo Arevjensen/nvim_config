@@ -33,14 +33,34 @@ return {
         },
         opts = { inlay_hints = { enabled = true }, },
         config = function()
-            local servers = { 'rust_analyzer', 'lua_ls', 'tailwindcss', 'htmx', 'eslint', 'html', 'cssls' }
+            local servers = {
+                rust_analyzer = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                    },
+                },
+                lua_ls = {
+                    Lua = {
+                        workspace = { checkThirdParty = false },
+                        telemetry = { enable = false },
+                    },
+                },
+                tailwindcss = {},
+                htmx = {},
+                eslint = {},
+                html = {},
+                cssls = {}
+            }
             local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
             require('neodev').setup()
             require("mason").setup()
+            local mason_lspconfig = require 'mason-lspconfig'
 
-            require("mason-lspconfig").setup {
-                ensure_installed = servers,
+            mason_lspconfig.setup {
+                ensure_installed = vim.tbl_keys(servers),
                 ui = {
                     icons = {
                         package_installed = "✓",
@@ -48,41 +68,17 @@ return {
                         package_uninstalled = "✗"
                     }
                 },
-                handlers = {
-                    function(server_name)
-                        require("lspconfig")[server_name].setup {
-                            capabilities = capabilities,
-                        }
-                    end,
-
-                    ["lua_ls"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.lua_ls.setup {
-                            settings = {
-                                Lua = {
-                                    diagnostics = {
-                                        globals = { "vim" }
-                                    }
-                                }
-                            }
-                        }
-                    end,
-                    ["rust_analyzer"] = function()
-                        local lspconfig = require("lspconfig")
-                        lspconfig.rust_analyzer.setup {
-                            -- on_attach = function(c, b)
-                            --     vim.lsp.inlay_hint.enable(b, true)
-                            -- end,
-                            settings = {
-                                checkOnSave = {
-                                    command = "clippy",
-                                }
-                            }
-                        }
-                    end,
-                },
             }
 
+            mason_lspconfig.setup_handlers {
+                function(server_name)
+                    require('lspconfig')[server_name].setup {
+                        capabilities = capabilities,
+                        -- on_attach = on_attach_keys,
+                        settings = servers[server_name],
+                    }
+                end,
+            }
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('UserLspConfig', {}),
                 callback = function(ev)
