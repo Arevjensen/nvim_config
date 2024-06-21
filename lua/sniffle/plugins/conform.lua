@@ -1,7 +1,7 @@
 return {
     { -- Autoformat
         'stevearc/conform.nvim',
-        event = 'VeryLazy',
+        event = 'BufWritePre',
         opts = {
             format_on_save = {
                 timeout_ms = 500,
