@@ -74,7 +74,6 @@ return {
                 function(server_name)
                     require('lspconfig')[server_name].setup {
                         capabilities = capabilities,
-                        -- on_attach = on_attach_keys,
                         settings = servers[server_name],
                     }
                 end,
