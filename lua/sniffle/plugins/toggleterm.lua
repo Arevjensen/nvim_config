@@ -2,7 +2,9 @@ return {
     'akinsho/toggleterm.nvim',
     event = 'VeryLazy',
     config = function()
-        require("toggleterm").setup()
+        require("toggleterm").setup {
+            shell = "fish"
+        }
         vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
         vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
         -- vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]])
