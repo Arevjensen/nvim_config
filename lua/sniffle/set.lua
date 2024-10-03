@@ -41,5 +41,6 @@ vim.opt.splitbelow = true
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = '80'
+vim.opt.shell = "/usr/bin/fish"
 --- except in Rust where the rule is 100 characters
 vim.api.nvim_create_autocmd('Filetype', { pattern = 'rust', command = 'set colorcolumn=100' })
