@@ -56,8 +56,10 @@ return {
 					--  This will expand snippets if the LSP sent a snippet.
 					['<C-y>'] = cmp.mapping.confirm { select = true },
 					-- Manually trigger a completion from nvim-cmp
+					['<C-Space>'] = cmp.mapping.complete {},
+					-- Scroll docs in completion
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4), ['<C-Space>'] = cmp.mapping.complete {},
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					-- Think of <c-l> as moving to the right of your snippet expansion.
 					--  So if you have a snippet that's like:
 					--  function $name($args)
